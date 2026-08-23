@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RoomBoard — a room schedule sign for any shared space</title>
+<meta name="description" content="Turn any tablet into a meeting room display. Shows what's on now, what's next, and whether the room is free. No accounts, no backend." />
+<link rel="icon" href="icon.png" />
+<style>
+  /* Palette matches the app's display surface so the site and the sign feel
+     like one product. */
+  :root {
+    --bg: #0D0F14;
+    --panel: #161A22;
+    --line: rgba(240,242,245,0.10);
+    --text-1: #F0F2F5;
+    --text-2: rgba(240,242,245,0.62);
+    --text-3: rgba(240,242,245,0.38);
+    --mint: #7EDBA0;
+    --peach: #F0A070;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text-1);
+    font-family: var(--font);
+    line-height: 1.6;
+    padding: 64px 24px 96px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  header { margin-bottom: 56px; }
+  .mark { width: 56px; height: 56px; margin-bottom: 24px; display: block; }
+  h1 {
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -1.2px;
+    margin: 0 0 12px;
+    line-height: 1.15;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--text-2);
+    margin: 0;
+    max-width: 34em;
+  }
+  h2 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin: 48px 0 16px;
+  }
+  ul { padding-left: 0; list-style: none; margin: 0; }
+  li {
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+    color: var(--text-2);
+  }
+  li strong { color: var(--text-1); font-weight: 600; }
+  .status {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--mint);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-top: 48px;
+    color: var(--text-2);
+    font-size: 15px;
+  }
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    color: var(--text-3);
+    font-size: 14px;
+  }
+  a { color: var(--mint); text-decoration: none; }
+  a:hover, a:focus { text-decoration: underline; }
+  a:focus-visible { outline: 2px solid var(--mint); outline-offset: 3px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <svg class="mark" viewBox="0 0 1024 1024" aria-hidden="true">
+      <rect width="1024" height="1024" rx="230" fill="#0D0F14"/>
+      <rect x="286" y="206" width="452" height="612" rx="40"
+            fill="none" stroke="#F0F2F5" stroke-width="52"/>
+      <path d="M 452 232 L 712 232 L 712 792 L 452 792 Z" fill="#0D0F14"/>
+      <path d="M 486 258 L 686 232 L 686 792 L 486 766 Z" fill="#7EDBA0"/>
+      <circle cx="530" cy="512" r="26" fill="#0D0F14"/>
+    </svg>
+    <h1>RoomBoard</h1>
+    <p class="lede">
+      Turn any tablet into a room schedule sign. Mount it by the door and it shows
+      what's on now, what's next, and whether the room is free.
+    </p>
+  </header>
+
+  <h2>What it does</h2>
+  <ul>
+    <li><strong>Reads any calendar.</strong> Point it at an ICS feed — Google, Apple, Outlook, Nextcloud, or anything else that publishes one.</li>
+    <li><strong>Readable from across a room.</strong> Large type on a dark panel, designed to be scanned in passing rather than read up close.</li>
+    <li><strong>Keeps working offline.</strong> The last schedule stays on screen if the Wi-Fi drops, and says so.</li>
+    <li><strong>Respects privacy.</strong> Choose how much detail passers-by see. Meetings marked private always show as “Reserved”.</li>
+    <li><strong>No accounts, no backend.</strong> Settings live on the tablet. Nothing is sent anywhere.</li>
+  </ul>
+
+  <h2>Where it fits</h2>
+  <ul>
+    <li>Meeting rooms, boardrooms and huddle spaces</li>
+    <li>Classrooms, studios and clinic rooms</li>
+    <li>Event spaces, community halls and coworking desks</li>
+  </ul>
+
+  <div class="status">
+    RoomBoard is in testing on Android. It is not on Google Play yet —
+    <a href="mailto:snowbyteapps@gmail.com">get in touch</a> if you would like to
+    try it on a tablet.
+  </div>
+
+  <footer>
+    <a href="privacy.html">Privacy policy</a> &nbsp;·&nbsp;
+    <a href="mailto:snowbyteapps@gmail.com">snowbyteapps@gmail.com</a>
+    <br /><br />
+    Snowbyte
+  </footer>
+
+</div>
+</body>
+</html>
