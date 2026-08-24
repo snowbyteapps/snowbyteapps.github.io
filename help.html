@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Why does every meeting say “Busy”? — RoomBoard</title>
+<title>Why does every meeting say “Busy”? - RoomBoard</title>
 <meta name="description" content="Troubleshooting for RoomBoard: what to do when meetings show as Busy with no title, even though Full details is selected. Usually a calendar publishing setting, not an app fault." />
 <link rel="icon" href="icon.png" />
 <style>
@@ -91,7 +91,7 @@
     <h1>Every meeting says “Busy”</h1>
     <p class="lede">
       You picked <strong>Full details</strong>, but the sign shows “Busy” on every
-      row — no titles, no organisers. Almost always this means the calendar feed
+      row - no titles, no organisers. Almost always this means the calendar feed
       itself contains no detail. Here is how to confirm that in about a minute,
       and what to change.
     </p>
@@ -104,11 +104,11 @@
     whether that is what is happening.</p>
   </div>
 
-  <h2>Step 1 — Look at the feed itself</h2>
+  <h2>Step 1 - Look at the feed itself</h2>
 
   <p>
     This is the only step that matters, because it settles the question without
-    guessing. Open your calendar address in a normal browser tab — the same
+    guessing. Open your calendar address in a normal browser tab - the same
     address you gave RoomBoard. Your browser will either display the file or
     download it; either is fine. Open it in any text editor.
   </p>
@@ -118,11 +118,11 @@
   <div class="verdict">
     <span class="label">If you see real titles</span>
     <p>
-      e.g. <code>SUMMARY:Q3 Budget Review</code> — the detail <em>is</em> in the
+      e.g. <code>SUMMARY:Q3 Budget Review</code> - the detail <em>is</em> in the
       feed. RoomBoard should be showing it. Check Settings → Privacy is set to
       “Full details”, and note that meetings marked private in the calendar are
       always reduced to “Reserved” by design. If titles are present and still not
-      showing, that is a genuine fault — please
+      showing, that is a genuine fault - please
       <a href="mailto:snowbyteapps@gmail.com">send us the details</a>.
     </p>
   </div>
@@ -131,7 +131,7 @@
     <span class="label">If every line says SUMMARY:Busy</span>
     <p>
       The detail was removed before publishing. Nothing in RoomBoard can recover
-      it — the words are not in the file. Continue below to find out which
+      it - the words are not in the file. Continue below to find out which
       setting removed them.
     </p>
   </div>
@@ -142,10 +142,10 @@
     usually has neither.
   </p>
 
-  <h2>Step 2 — Find which setting stripped it</h2>
+  <h2>Step 2 - Find which setting stripped it</h2>
 
   <p>
-    There are two separate places detail can be lost, and they are independent —
+    There are two separate places detail can be lost, and they are independent -
     a room calendar can be affected by both at once.
   </p>
 
@@ -172,7 +172,7 @@
     have hit an organisation-wide policy rather than a personal setting. In
     Microsoft 365 an administrator can cap how much detail <em>anyone</em> in the
     organisation may publish externally. No amount of retrying in Outlook will
-    change it — it needs an administrator. See the note for administrators
+    change it - it needs an administrator. See the note for administrators
     below.</p>
   </div>
 
@@ -185,8 +185,8 @@
 
   <p>
     This one catches people out, because it happens at booking time rather than
-    publishing time. If your room is a <strong>resource mailbox</strong> — a
-    calendar belonging to the room, which people invite rather than book directly —
+    publishing time. If your room is a <strong>resource mailbox</strong> - a
+    calendar belonging to the room, which people invite rather than book directly -
     Microsoft Exchange deletes the meeting subject by default and replaces it with
     the organiser's name.
   </p>
@@ -211,7 +211,7 @@
   <p>
     <code>AddOrganizerToSubject</code> prepends the organiser's name to the title.
     On a sign in a public corridor that means showing staff or guest names to
-    passers-by, which is usually not what you want — hence <code>$false</code>.
+    passers-by, which is usually not what you want - hence <code>$false</code>.
   </p>
 
   <h2>For administrators</h2>
@@ -235,21 +235,21 @@
   <div class="callout">
     <p><strong>Exact commands vary by tenant</strong> and Microsoft changes them
     over time. Treat the above as the shape of the problem rather than a script to
-    paste — and check Microsoft's current documentation for your environment.</p>
+    paste - and check Microsoft's current documentation for your environment.</p>
   </div>
 
   <h2>Is busy-only actually a problem?</h2>
 
   <p>
     Worth asking before changing any policy. The question a passer-by asks is
-    “is this room free, and when does it free up?” — and a busy-only feed answers
+    “is this room free, and when does it free up?” - and a busy-only feed answers
     that completely. Times are correct, the status is correct, and “In Use ·
     until 14:30” is exactly as useful as it would be with a title attached.
   </p>
 
   <p>
     For a room in a public corridor, showing meeting subjects to everyone walking
-    past is often the wrong choice anyway — which is why RoomBoard has
+    past is often the wrong choice anyway - which is why RoomBoard has
     <strong>Titles only</strong> and <strong>Busy only</strong> privacy modes of
     its own. If you were going to hide detail in the app, there is little reason
     to publish it in the first place.
@@ -268,7 +268,7 @@
   <h3>Some meetings say “Reserved”</h3>
   <p>
     Meetings the calendar marks as private are always reduced to “Reserved”,
-    whatever privacy mode you choose. That is deliberate — the organiser asked for
+    whatever privacy mode you choose. That is deliberate - the organiser asked for
     privacy, so it is not treated as a preference. Note that the booking still
     appears: the room correctly shows as in use.
   </p>
@@ -284,7 +284,7 @@
   <h3>Testing the feed says the browser blocked it</h3>
   <p>
     That only happens in the web preview, where browsers block cross-origin
-    requests to calendar servers. The same address works in the Android app —
+    requests to calendar servers. The same address works in the Android app -
     test it on the tablet.
   </p>
 
