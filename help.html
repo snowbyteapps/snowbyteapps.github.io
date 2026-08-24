@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Why does every meeting say “Busy”? — RoomBoard</title>
+<meta name="description" content="Troubleshooting for RoomBoard: what to do when meetings show as Busy with no title, even though Full details is selected. Usually a calendar publishing setting, not an app fault." />
+<link rel="icon" href="icon.png" />
+<style>
+  :root {
+    --bg: #0D0F14;
+    --panel: #161A22;
+    --line: rgba(240,242,245,0.10);
+    --text-1: #F0F2F5;
+    --text-2: rgba(240,242,245,0.62);
+    --text-3: rgba(240,242,245,0.38);
+    --mint: #7EDBA0;
+    --peach: #F0A070;
+    --gold: #F5C36B;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text-1);
+    font-family: var(--font); line-height: 1.65; padding: 64px 24px 96px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  header { margin-bottom: 48px; }
+  .mark { width: 56px; height: 56px; margin-bottom: 24px; display: block; }
+  h1 { font-size: 36px; font-weight: 700; letter-spacing: -1px; margin: 0 0 14px; line-height: 1.15; }
+  .lede { font-size: 19px; color: var(--text-2); margin: 0; max-width: 36em; }
+  h2 {
+    font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--text-3); margin: 56px 0 18px; padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  h3 { font-size: 18px; font-weight: 600; margin: 32px 0 10px; color: var(--text-1); }
+  p { color: var(--text-2); margin: 0 0 16px; }
+  strong { color: var(--text-1); font-weight: 600; }
+  ol, ul { color: var(--text-2); padding-left: 22px; margin: 0 0 16px; }
+  li { padding: 5px 0; }
+  code {
+    font-family: var(--mono); font-size: 0.88em; color: var(--text-1);
+    background: rgba(240,242,245,0.07); padding: 2px 6px; border-radius: 4px;
+  }
+  pre {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+    padding: 16px 18px; overflow-x: auto; margin: 0 0 16px;
+  }
+  pre code { background: none; padding: 0; font-size: 13px; line-height: 1.6; color: var(--text-2); }
+  .callout {
+    background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--mint);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 24px; color: var(--text-2); font-size: 15px;
+  }
+  .callout.warn { border-left-color: var(--gold); }
+  .callout p:last-child { margin-bottom: 0; }
+  .verdict {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+    padding: 18px 22px; margin: 0 0 14px;
+  }
+  .verdict .label {
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--mint); font-weight: 600; display: block; margin-bottom: 6px;
+  }
+  .verdict.b .label { color: var(--gold); }
+  .verdict p { margin: 0; font-size: 15px; }
+  footer {
+    margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
+    color: var(--text-3); font-size: 14px;
+  }
+  a { color: var(--mint); text-decoration: none; }
+  a:hover, a:focus { text-decoration: underline; }
+  a:focus-visible { outline: 2px solid var(--mint); outline-offset: 3px; }
+  .toc { margin: 0 0 8px; }
+  .toc a { display: block; padding: 4px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <svg class="mark" viewBox="0 0 1024 1024" aria-hidden="true">
+      <rect width="1024" height="1024" rx="230" fill="#0D0F14"/>
+      <rect x="286" y="206" width="452" height="612" rx="40"
+            fill="none" stroke="#F0F2F5" stroke-width="52"/>
+      <path d="M 452 232 L 712 232 L 712 792 L 452 792 Z" fill="#0D0F14"/>
+      <path d="M 486 258 L 686 232 L 686 792 L 486 766 Z" fill="#7EDBA0"/>
+      <circle cx="530" cy="512" r="26" fill="#0D0F14"/>
+    </svg>
+    <h1>Every meeting says “Busy”</h1>
+    <p class="lede">
+      You picked <strong>Full details</strong>, but the sign shows “Busy” on every
+      row — no titles, no organisers. Almost always this means the calendar feed
+      itself contains no detail. Here is how to confirm that in about a minute,
+      and what to change.
+    </p>
+  </header>
+
+  <div class="callout">
+    <p><strong>Short version.</strong> Calendar systems can strip meeting details
+    <em>before</em> publishing a feed. When that happens the detail never reaches
+    RoomBoard, so no in-app setting can bring it back. The check below tells you
+    whether that is what is happening.</p>
+  </div>
+
+  <h2>Step 1 — Look at the feed itself</h2>
+
+  <p>
+    This is the only step that matters, because it settles the question without
+    guessing. Open your calendar address in a normal browser tab — the same
+    address you gave RoomBoard. Your browser will either display the file or
+    download it; either is fine. Open it in any text editor.
+  </p>
+
+  <p>You are looking for lines beginning <code>SUMMARY:</code>.</p>
+
+  <div class="verdict">
+    <span class="label">If you see real titles</span>
+    <p>
+      e.g. <code>SUMMARY:Q3 Budget Review</code> — the detail <em>is</em> in the
+      feed. RoomBoard should be showing it. Check Settings → Privacy is set to
+      “Full details”, and note that meetings marked private in the calendar are
+      always reduced to “Reserved” by design. If titles are present and still not
+      showing, that is a genuine fault — please
+      <a href="mailto:snowbyteapps@gmail.com">send us the details</a>.
+    </p>
+  </div>
+
+  <div class="verdict b">
+    <span class="label">If every line says SUMMARY:Busy</span>
+    <p>
+      The detail was removed before publishing. Nothing in RoomBoard can recover
+      it — the words are not in the file. Continue below to find out which
+      setting removed them.
+    </p>
+  </div>
+
+  <p>
+    While you are there, check whether <code>ORGANIZER</code> and
+    <code>LOCATION</code> lines exist at all. A feed stripped to availability-only
+    usually has neither.
+  </p>
+
+  <h2>Step 2 — Find which setting stripped it</h2>
+
+  <p>
+    There are two separate places detail can be lost, and they are independent —
+    a room calendar can be affected by both at once.
+  </p>
+
+  <h3>A. The calendar was published as “busy only”</h3>
+
+  <p>
+    Most calendar systems let you choose how much a published link reveals.
+    Choosing the availability-only option strips titles server-side.
+  </p>
+
+  <ul>
+    <li><strong>Outlook / Microsoft 365:</strong> Settings → Calendar → Shared
+      calendars → under “Publish a calendar”, the permission dropdown.
+      “Can view when I'm busy” strips detail; “Can view all details” keeps it.</li>
+    <li><strong>Google Calendar:</strong> Settings and sharing → “See all event
+      details” rather than “See only free/busy”. Use the
+      <em>Secret address in iCal format</em>.</li>
+    <li><strong>Apple / iCloud:</strong> a public calendar link includes detail;
+      there is no busy-only variant.</li>
+  </ul>
+
+  <div class="callout warn">
+    <p><strong>If “Can view all details” is greyed out or missing</strong>, you
+    have hit an organisation-wide policy rather than a personal setting. In
+    Microsoft 365 an administrator can cap how much detail <em>anyone</em> in the
+    organisation may publish externally. No amount of retrying in Outlook will
+    change it — it needs an administrator. See the note for administrators
+    below.</p>
+  </div>
+
+  <p>
+    After changing the permission you normally have to republish, and
+    <strong>the address usually changes</strong>. Scan or paste the new one.
+  </p>
+
+  <h3>B. The room calendar deletes subjects when meetings are booked</h3>
+
+  <p>
+    This one catches people out, because it happens at booking time rather than
+    publishing time. If your room is a <strong>resource mailbox</strong> — a
+    calendar belonging to the room, which people invite rather than book directly —
+    Microsoft Exchange deletes the meeting subject by default and replaces it with
+    the organiser's name.
+  </p>
+
+  <p>
+    The consequence worth knowing: the subject was never stored on the room's
+    calendar, so <strong>changing this only affects meetings booked afterwards</strong>.
+    Existing bookings stay detail-free permanently. If you are testing, book a
+    fresh meeting after changing it rather than waiting.
+  </p>
+
+  <p>An administrator can check the current behaviour with:</p>
+
+<pre><code>Get-CalendarProcessing -Identity "Room Name" |
+  Format-List DeleteSubject, AddOrganizerToSubject, DeleteComments</code></pre>
+
+  <p>and keep subjects with:</p>
+
+<pre><code>Set-CalendarProcessing -Identity "Room Name" `
+  -DeleteSubject $false -AddOrganizerToSubject $false</code></pre>
+
+  <p>
+    <code>AddOrganizerToSubject</code> prepends the organiser's name to the title.
+    On a sign in a public corridor that means showing staff or guest names to
+    passers-by, which is usually not what you want — hence <code>$false</code>.
+  </p>
+
+  <h2>For administrators</h2>
+
+  <p>
+    If your organisation caps published calendar detail, the tempting fix is to
+    raise the limit for everyone. Consider not doing that: it would let any
+    account publish full calendar detail to a public URL.
+  </p>
+
+  <p>
+    A narrower approach is to allow the higher detail level only for the room
+    mailboxes that drive displays, leaving staff mailboxes restrictive. In
+    Exchange Online that means a separate sharing policy assigned to those
+    mailboxes rather than changing the default one. Check what is in place now
+    before changing anything:
+  </p>
+
+<pre><code>Get-SharingPolicy | Format-List Name, Domains, Enabled, Default</code></pre>
+
+  <div class="callout">
+    <p><strong>Exact commands vary by tenant</strong> and Microsoft changes them
+    over time. Treat the above as the shape of the problem rather than a script to
+    paste — and check Microsoft's current documentation for your environment.</p>
+  </div>
+
+  <h2>Is busy-only actually a problem?</h2>
+
+  <p>
+    Worth asking before changing any policy. The question a passer-by asks is
+    “is this room free, and when does it free up?” — and a busy-only feed answers
+    that completely. Times are correct, the status is correct, and “In Use ·
+    until 14:30” is exactly as useful as it would be with a title attached.
+  </p>
+
+  <p>
+    For a room in a public corridor, showing meeting subjects to everyone walking
+    past is often the wrong choice anyway — which is why RoomBoard has
+    <strong>Titles only</strong> and <strong>Busy only</strong> privacy modes of
+    its own. If you were going to hide detail in the app, there is little reason
+    to publish it in the first place.
+  </p>
+
+  <h2>Other things worth knowing</h2>
+
+  <h3>Meeting times are shifted by whole hours</h3>
+  <p>
+    RoomBoard shows times in the tablet's own timezone. If a meeting reads 14:00
+    on the sign and 15:00 in the calendar, set the tablet's timezone to match the
+    room: Android Settings → System → Date &amp; time, and prefer automatic
+    network time.
+  </p>
+
+  <h3>Some meetings say “Reserved”</h3>
+  <p>
+    Meetings the calendar marks as private are always reduced to “Reserved”,
+    whatever privacy mode you choose. That is deliberate — the organiser asked for
+    privacy, so it is not treated as a preference. Note that the booking still
+    appears: the room correctly shows as in use.
+  </p>
+
+  <h3>The sign shows “Showing saved schedule”</h3>
+  <p>
+    The tablet could not reach the calendar and is showing the last schedule it
+    successfully loaded. It appears once the saved copy is old enough to possibly
+    be out of date, and clears itself on the next successful refresh. If it stays,
+    check the tablet's Wi-Fi and that the calendar address still works.
+  </p>
+
+  <h3>Testing the feed says the browser blocked it</h3>
+  <p>
+    That only happens in the web preview, where browsers block cross-origin
+    requests to calendar servers. The same address works in the Android app —
+    test it on the tablet.
+  </p>
+
+  <footer>
+    <a href="./">RoomBoard</a> &nbsp;·&nbsp;
+    <a href="qr.html">QR code generator</a> &nbsp;·&nbsp;
+    <a href="privacy.html">Privacy policy</a> &nbsp;·&nbsp;
+    <a href="mailto:snowbyteapps@gmail.com">snowbyteapps@gmail.com</a>
+  </footer>
+
+</div>
+</body>
+</html>
