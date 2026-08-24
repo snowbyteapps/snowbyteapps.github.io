@@ -1,182 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy — RoomBoard</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
-      color: #1a1a2e;
-      background: #f9fafb;
-      padding: 48px 24px 80px;
-    }
-
-    .wrap {
-      max-width: 680px;
-      margin: 0 auto;
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 48px 48px 56px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
-    }
-
-    .brand {
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #6b7280;
-      margin-bottom: 12px;
-    }
-
-    h1 {
-      font-size: 28px;
-      font-weight: 700;
-      color: #0f1e35;
-      margin-bottom: 6px;
-      letter-spacing: -0.4px;
-    }
-
-    .updated {
-      font-size: 13px;
-      color: #9ca3af;
-      margin-bottom: 40px;
-    }
-
-    h2 {
-      font-size: 16px;
-      font-weight: 600;
-      color: #0f1e35;
-      margin-top: 36px;
-      margin-bottom: 8px;
-    }
-
-    p { margin-bottom: 14px; color: #374151; }
-
-    ul {
-      margin: 8px 0 14px 20px;
-      color: #374151;
-    }
-
-    ul li { margin-bottom: 6px; }
-
-    a { color: #2563eb; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .footer {
-      margin-top: 48px;
-      padding-top: 24px;
-      border-top: 1px solid #e5e7eb;
-      font-size: 13px;
-      color: #9ca3af;
-    }
-
-    @media (max-width: 600px) {
-      .wrap { padding: 32px 24px 40px; }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy - RoomBoard</title>
+<meta name="description" content="RoomBoard collects no personal data. No accounts, no backend, no analytics. Everything stays on the tablet." />
+<link rel="icon" href="icon.png" />
+<style>
+  :root {
+    --bg: #0D0F14;
+    --panel: #161A22;
+    --line: rgba(240,242,245,0.10);
+    --text-1: #F0F2F5;
+    --text-2: rgba(240,242,245,0.62);
+    --text-3: rgba(240,242,245,0.38);
+    --mint: #7EDBA0;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text-1);
+    font-family: var(--font); line-height: 1.65; padding: 64px 24px 96px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  header { margin-bottom: 48px; }
+  .mark { width: 56px; height: 56px; margin-bottom: 24px; display: block; }
+  h1 { font-size: 36px; font-weight: 700; letter-spacing: -1px; margin: 0 0 10px; line-height: 1.15; }
+  .updated { font-size: 14px; color: var(--text-3); margin: 0 0 24px; }
+  .lede { font-size: 18px; color: var(--text-2); margin: 0; max-width: 36em; }
+  h2 {
+    font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--text-3); margin: 48px 0 16px; padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  p { color: var(--text-2); margin: 0 0 16px; }
+  strong { color: var(--text-1); font-weight: 600; }
+  ul { color: var(--text-2); padding-left: 22px; margin: 0 0 16px; }
+  li { padding: 5px 0; }
+  .callout {
+    background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--mint);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 24px; color: var(--text-2); font-size: 15px;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+  footer {
+    margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
+    color: var(--text-3); font-size: 14px;
+  }
+  a { color: var(--mint); text-decoration: none; }
+  a:hover, a:focus { text-decoration: underline; }
+  a:focus-visible { outline: 2px solid var(--mint); outline-offset: 3px; }
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <p class="brand">RoomBoard</p>
-    <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: 5 June 2026</p>
+<div class="wrap">
 
-    <p>
-      RoomBoard is a tablet display app that shows room and event schedules
-      for shared spaces such as meeting rooms, classrooms, coworking spaces, and
+  <header>
+    <svg class="mark" viewBox="0 0 1024 1024" aria-hidden="true">
+      <rect width="1024" height="1024" rx="230" fill="#0D0F14"/>
+      <rect x="286" y="206" width="452" height="612" rx="40"
+            fill="none" stroke="#F0F2F5" stroke-width="52"/>
+      <path d="M 452 232 L 712 232 L 712 792 L 452 792 Z" fill="#0D0F14"/>
+      <path d="M 486 258 L 686 232 L 686 792 L 486 766 Z" fill="#7EDBA0"/>
+      <circle cx="530" cy="512" r="26" fill="#0D0F14"/>
+    </svg>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: 24 August 2026</p>
+    <p class="lede">
+      RoomBoard is a tablet display app that shows room and event schedules for
+      shared spaces such as meeting rooms, classrooms, coworking spaces and
       community halls. This policy explains what data the app handles and how.
     </p>
+  </header>
 
-    <h2>What data the app collects</h2>
-    <p>
-      RoomBoard <strong>does not collect any personal data</strong>. The app
-      has no user accounts, no registration, and no backend server.
-    </p>
-    <p>
-      The only information stored by the app is saved locally on the device itself:
-    </p>
-    <ul>
-      <li>Room name and venue name you enter during setup</li>
-      <li>Your chosen display preferences (theme, time format, refresh interval, etc.)</li>
-      <li>The ICS calendar feed URL you configure, if any</li>
-      <li>A short-lived cache of calendar events for offline display</li>
-    </ul>
-    <p>
-      None of this information is sent to us or any third party.
-    </p>
-
-    <h2>Calendar data</h2>
-    <p>
-      If you configure an ICS/iCal feed URL, the app fetches calendar events
-      directly from that URL on your device. The events are displayed on screen
-      and temporarily cached on the device for offline use. Calendar data is
-      never transmitted to our servers because we operate no servers.
-    </p>
-    <p>
-      The ICS URL you enter is stored only on the device. If you use a private
-      calendar URL (such as a Google Calendar "secret address"), keep that URL
-      confidential — anyone with it can read your calendar.
-    </p>
-
-    <h2>Camera</h2>
-    <p>
-      The app requests camera permission only if you choose to scan a QR code to
-      enter a calendar URL. Camera access is used in that moment only and no
-      images or video are stored or transmitted.
-    </p>
-
-    <h2>Analytics and advertising</h2>
-    <p>
-      The app contains no analytics SDKs, crash reporters, advertising networks,
-      or tracking pixels.
-    </p>
-
-    <h2>Third-party services</h2>
-    <p>
-      The app does not integrate with any third-party analytics, advertising, or
-      data-sharing services. The only network requests the app makes are:
-    </p>
-    <ul>
-      <li>Fetching your configured ICS calendar feed URL (device-initiated, no intermediary)</li>
-    </ul>
-
-    <h2>Children</h2>
-    <p>
-      The app does not knowingly collect information from anyone. Because it
-      collects no personal data at all, it is suitable for use in environments
-      that serve children (schools, community halls, etc.).
-    </p>
-
-    <h2>Data deletion</h2>
-    <p>
-      All app data is stored locally on the device. To delete it, use
-      <strong>Settings → Advanced → Reset all app data</strong> within the app,
-      or uninstall the app. This permanently removes all settings and cached
-      schedules from the device.
-    </p>
-
-    <h2>Changes to this policy</h2>
-    <p>
-      If this policy changes materially, the updated version will be published at
-      this URL with a new "last updated" date.
-    </p>
-
-    <h2>Contact</h2>
-    <p>
-      Questions about this policy can be sent to
-      <a href="mailto:snowbyteapps@gmail.com">snowbyteapps@gmail.com</a>.
-    </p>
-
-    <div class="footer">
-      RoomBoard &nbsp;·&nbsp; Snowbyte &nbsp;·&nbsp;
-      <a href="mailto:snowbyteapps@gmail.com">snowbyteapps@gmail.com</a>
-    </div>
+  <div class="callout">
+    <p><strong>In short.</strong> RoomBoard collects no personal data. There are
+    no accounts, no analytics, and no servers of ours for anything to be sent to.
+    Everything the app knows stays on the tablet.</p>
   </div>
+
+  <h2>What data the app collects</h2>
+  <p>
+    RoomBoard <strong>does not collect any personal data</strong>. The app has no
+    user accounts, no registration, and no backend server.
+  </p>
+  <p>
+    The only information stored by the app is saved locally on the device itself:
+  </p>
+  <ul>
+    <li>Room name and venue name you enter during setup</li>
+    <li>Your chosen privacy setting for how much meeting detail is shown</li>
+    <li>The ICS calendar feed URL you configure, if any</li>
+    <li>A short-lived cache of calendar events for offline display</li>
+  </ul>
+  <p>
+    None of this information is sent to us or any third party.
+  </p>
+
+  <h2>Calendar data</h2>
+  <p>
+    If you configure an ICS/iCal feed URL, the app fetches calendar events
+    directly from that URL on your device. The events are displayed on screen and
+    temporarily cached on the device for offline use. Calendar data is never
+    transmitted to our servers because we operate no servers.
+  </p>
+  <p>
+    The ICS URL you enter is stored only on the device. If you use a private
+    calendar URL (such as a Google Calendar "secret address"), keep that URL
+    confidential - anyone with it can read your calendar.
+  </p>
+
+  <h2>Camera</h2>
+  <p>
+    The app requests camera permission only if you choose to scan a QR code to
+    enter a calendar URL. Camera access is used in that moment only and no images
+    or video are stored or transmitted.
+  </p>
+
+  <h2>Analytics and advertising</h2>
+  <p>
+    The app contains no analytics SDKs, crash reporters, advertising networks, or
+    tracking pixels.
+  </p>
+
+  <h2>Third-party services</h2>
+  <p>
+    The app does not integrate with any third-party analytics, advertising, or
+    data-sharing services. The only network requests the app makes are:
+  </p>
+  <ul>
+    <li>Fetching your configured ICS calendar feed URL (device-initiated, no intermediary)</li>
+  </ul>
+
+  <h2>Children</h2>
+  <p>
+    The app does not knowingly collect information from anyone. Because it
+    collects no personal data at all, it is suitable for use in environments that
+    serve children (schools, community halls, etc.).
+  </p>
+
+  <h2>Data deletion</h2>
+  <p>
+    All app data is stored locally on the device. To delete it, use
+    <strong>Settings → Advanced → Reset all app data</strong> within the app, or
+    uninstall the app. This permanently removes all settings and cached schedules
+    from the device.
+  </p>
+
+  <h2>Changes to this policy</h2>
+  <p>
+    If this policy changes materially, the updated version will be published at
+    this URL with a new "last updated" date.
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    Questions about this policy can be sent to
+    <a href="mailto:snowbyteapps@gmail.com">snowbyteapps@gmail.com</a>.
+  </p>
+
+  <footer>
+    <a href="./">RoomBoard</a> &nbsp;·&nbsp;
+    <a href="help.html">Troubleshooting</a> &nbsp;·&nbsp;
+    <a href="qr.html">QR code generator</a> &nbsp;·&nbsp;
+    <a href="mailto:snowbyteapps@gmail.com">snowbyteapps@gmail.com</a>
+  </footer>
+
+</div>
 </body>
 </html>
